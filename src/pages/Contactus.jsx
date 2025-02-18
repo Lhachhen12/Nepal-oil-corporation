@@ -73,7 +73,7 @@ const ContactForm = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Contact Information */}
         <div className="lg:col-span-1">
-          <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl p-8 h-full">
+          <div className="bg-gradient-to-br from-blue-800 to-blue-950 text-white rounded-2xl p-8 h-full">
             <h3 className="text-2xl font-semibold mb-8">Contact Information</h3>
             
             <div className="space-y-6">
@@ -115,7 +115,7 @@ const ContactForm = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full p-3 rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all`}
+                    className={`w-full p-3 rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-blue-800 transition-all`}
                     placeholder="Lhachhen Wangjyu Lama"
                   />
                   {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
@@ -131,7 +131,7 @@ const ContactForm = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full p-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all`}
+                    className={`w-full p-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-blue-800 transition-all`}
                     placeholder="shreejanlama608@gmail.com"
                   />
                   {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
@@ -147,7 +147,7 @@ const ContactForm = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className={`w-full p-3 rounded-lg border ${errors.phone ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all`}
+                    className={`w-full p-3 rounded-lg border ${errors.phone ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-blue-800 transition-all`}
                     placeholder="+977 98XXXXXXXX"
                   />
                   {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
@@ -163,7 +163,7 @@ const ContactForm = () => {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className={`w-full p-3 rounded-lg border ${errors.subject ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all`}
+                    className={`w-full p-3 rounded-lg border ${errors.subject ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-blue-800 transition-all`}
                     placeholder="How can we help?"
                   />
                   {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
@@ -180,7 +180,7 @@ const ContactForm = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows="4"
-                  className={`w-full p-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all`}
+                  className={`w-full p-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-blue-800 transition-all`}
                   placeholder="Write your message here..."
                 ></textarea>
                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
@@ -189,7 +189,7 @@ const ContactForm = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium flex items-center justify-center space-x-2 transition-colors disabled:opacity-70"
+                className="w-full bg-gradient-to-br from-blue-800 to-blue-900 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium flex items-center justify-center space-x-2 transition-colors disabled:opacity-70"
               >
                 {loading ? (
                   <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent" />
@@ -208,7 +208,7 @@ const ContactForm = () => {
      {/* Google Map Wrapper */}
 <div className="location-wrapper mt-12 ">
   <h2 className="text-xl text-center font-bold pb-2">Our Location</h2>
-  <div className="rounded-2xl overflow-hidden shadow-xl border-2 border-blue-500 bg-white">
+  <div className="rounded-2xl overflow-hidden shadow-xl border-2 border-blue-800 bg-white">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.7426722175446!2d85.32184607447189!3d27.694347126066493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19bab540e9c3%3A0xbf4b45f5a4341982!2sTanka%20Prasad%20Ghumti%20Sadak%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1739894817550!5m2!1sen!2snp"
       width="100%"
@@ -241,7 +241,7 @@ const ContactForm = () => {
               <p className="text-gray-600 mb-6">Thank you for contacting us. We will get back to you soon.</p>
               <button
                 onClick={() => setShowPopup(false)}
-                className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                className="bg-blue-800 text-white px-6 py-2 rounded-lg hover:bg-blue-900 transition-colors"
               >
                 Close
               </button>
