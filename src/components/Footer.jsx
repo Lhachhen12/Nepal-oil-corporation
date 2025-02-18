@@ -9,13 +9,10 @@ function Footer() {
         <div className="text-center mb-8 pb-8 border-b border-gray-800">
           <p className="mb-4">Get connected with us on social networks!</p>
           <div className="flex justify-center space-x-4">
-            <a href="#" className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700">
+            <a href="https://www.facebook.com/NOCL.OFFICIAL/" target="_blank" className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700">
               <FaFacebookF />
             </a>
-            <a href="#" className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-400 hover:bg-blue-500">
-              <FaTwitter />
-            </a>
-            <a href="#" className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-700 hover:bg-blue-800">
+            <a href="https://www.linkedin.com/company/nepal-oil-corporation-limited/?originalSubdomain=np" target="_blank" className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-700 hover:bg-blue-800">
               <FaLinkedinIn />
             </a>
           </div>
@@ -38,8 +35,8 @@ function Footer() {
             <ul className="space-y-2">
               <li><Link to="/" className="text-gray-400 hover:text-white">Home</Link></li>
               <li><Link to="/about" className="text-gray-400 hover:text-white">About Us</Link></li>
-              <li><a href="#gallery" className="text-gray-400 hover:text-white">Photo Gallery</a></li>
-              <li><Link to="#contact" className="text-gray-400 hover:text-white">Contact Us</Link></li>
+              <li><a href="/photogalary" className="text-gray-400 hover:text-white">Photo Gallery</a></li>
+              <li><Link to="/contactus" className="text-gray-400 hover:text-white">Contact Us</Link></li>
               <li><a href="https://noc.org.np" className="text-gray-400 hover:text-white">Old Website</a></li>
             </ul>
           </div>

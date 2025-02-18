@@ -20,12 +20,12 @@ const NewsDetail = () => {
           
           {/* Suggestions Section */}
           <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">अन्य विकल्पहरू:</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Other Options:</h3>
             <ul className="space-y-2">
-              {notFoundData.suggestions.map((suggestion, index) => (
+              {notFoundData.suggestions?.map((suggestion, index) => (
                 <li key={index} className="text-gray-600">
                   <Link 
-                    to={notFoundData.links[Object.keys(notFoundData.links)[index]]}
+                    to={notFoundData.links?.[suggestion]}
                     className="text-primary hover:text-secondary"
                   >
                     {suggestion}
@@ -39,7 +39,7 @@ const NewsDetail = () => {
             onClick={() => navigate('/news')}
             className="text-primary hover:text-secondary font-medium inline-flex items-center"
           >
-            ← मुख्य समाचार पृष्ठमा फर्कनुहोस्
+            ← Back to News
           </button>
         </div>
       </div>
@@ -75,7 +75,7 @@ const NewsDetail = () => {
           <div className="prose max-w-none">
             <p className="text-gray-600 text-lg leading-relaxed">{newsItem.content}</p>
             
-            {/* Additional content section - you can expand this based on your needs */}
+            {/* Additional content section */}
             <div className="mt-8">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">Additional Information</h2>
               <p className="text-gray-600">
@@ -89,7 +89,6 @@ const NewsDetail = () => {
               <div className="flex space-x-4">
                 <button className="text-primary hover:text-secondary">
                   <span className="sr-only">Share on Facebook</span>
-                  {/* You can add social media icons here */}
                   Facebook
                 </button>
                 <button className="text-primary hover:text-secondary">

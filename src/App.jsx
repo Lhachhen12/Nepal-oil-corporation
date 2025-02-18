@@ -9,10 +9,15 @@ import Product from './pages/Product';
 import ProductDetail from './components/ProductDetail';
 import NavPromo from './components/NavPromo';
 import NewsDetail from './components/NewsDetail';
+import PhotoGallery from './components/PhotoGallery';
+import { Contact } from 'lucide-react';
+import ContactForm from './pages/Contactus';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <NavPromo />
@@ -27,6 +32,8 @@ function App() {
             <Route path="/news" element={<NewsNotice />} />
             <Route path="/news/:category" element={<NewsNotice />} />
             <Route path="/news/:category/:id" element={<NewsDetail />} />
+            <Route path="/photogalary" element={<PhotoGallery />} />
+            <Route path='/contactus' element={<ContactForm />} />
           </Routes>
         </main>
         <Footer />

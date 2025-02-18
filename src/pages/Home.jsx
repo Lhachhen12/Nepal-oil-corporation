@@ -1,45 +1,13 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaGasPump, FaTruck, FaIndustry, FaNewspaper, FaFileAlt } from 'react-icons/fa';
+import { newsData } from '../data/newsdata';
+import EnhancedHomeSlider from '../components/EnhancedHomeSlider';
 
 function Home() {
-  const news = [
-    {
-      title: "निगमको ५५ औ वार्षिकोत्सवको अवसरमा आयोजित संस्थागत सामाजिक उत्तरदायित्व कार्यकरमका झलकहरु",
-      content: "निगमको ५५ औ वार्षिकोत्सवको अवसरमा आयोजित संस्थागत सामाजिक उत्तरदायित्व कार्यकरमका झलकहरु"
-    },
-    {
-      title: "इन्धन व्यापारमा विकल्प को खोजि",
-      content: "इन्धन व्यापारमा विकल्प को खोजि"
-    }
-  ];
-
-  const notices = [
-    {
-      title: "हार्दिक निमन्त्रणा",
-      date: "9 Jan 2025",
-      content: "हार्दिक निमन्त्रणा"
-    },
-    {
-      title: "लिखित परीक्षाको परीक्षा केन्द्र प्रकाशन गरिएको सूचना (सूचना नं. २१/२०८१-८२)",
-      date: "16 Dec 2024",
-      content: "लिखित परीक्षाको परीक्षा केन्द्र प्रकाशन गरिएको सूचना"
-    },
-    {
-      title: "लोक सेवा आयोगबाट लिइने निगमको आन्तरिक तथा खुला/समावेशी प्रतियोगितात्मक लिखित परीक्षा कार्यक्रम बारेको सूचना",
-      date: "6 Dec 2024",
-      content: "सूचना नं. २०/२०८१-८२"
-    },
-    {
-      title: "नया साधारण बिक्रेता नियुक्ति सम्बन्धि सुचना",
-      date: "22 Nov 2024",
-      content: "नया साधारण बिक्रेता नियुक्ति सम्बन्धि सुचना"
-    },
-    {
-      title: "बढुवा सिफारिस गरिएको बारे सूचना",
-      date: "21 Nov 2024",
-      content: "सूचना नं. १९/२०८१–८२"
-    }
-  ];
+  // Get latest 2 news items and 5 notices
+  const latestNews = newsData.latest.slice(0, 4);
+  const latestNotices = newsData.notices.slice(0, 5);
 
   const quickLinks = [
     { icon: FaGasPump, title: "Daily Price", link: "/prices" },
@@ -49,24 +17,7 @@ function Home() {
 
   return (
     <div>
-      {/* Hero Section with Slider */}
-      <section className="relative bg-primary h-[500px]">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-90"></div>
-        <div className="relative max-w-7xl mx-auto px-4 h-full flex items-center">
-          <div className="text-white">
-            <h1 className="text-5xl font-bold mb-6">Nepal Oil Corporation</h1>
-            <p className="text-2xl mb-8">Ensuring Energy Security for Nepal</p>
-            <div className="flex space-x-4">
-              <Link to="/prices" className="bg-accent hover:bg-yellow-600 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors">
-                View Prices
-              </Link>
-              <Link to="/about" className="border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-primary transition-colors">
-                Learn More
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+       <EnhancedHomeSlider className=""/>
 
       {/* Quick Links */}
       <section className="py-8 bg-white">
@@ -88,35 +39,56 @@ function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* News Section */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Latest News</h2>
+              <div className="flex justify-between items-center mb-8">
+                <h2 className="text-3xl font-bold text-gray-900">Latest News</h2>
+                <Link to="/news/latest" className="text-primary hover:text-secondary">
+                  View All →
+                </Link>
+              </div>
               <div className="space-y-6">
-                {news.map((item, index) => (
-                  <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                {latestNews.map((item) => (
+                  <Link 
+                    key={item.id} 
+                    to={`/news/${item.category}/${item.id}`}
+                    className="block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+                  >
                     <div className="p-6">
                       <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
-                      <p className="text-gray-600 mb-4">{item.content}</p>
-                      <Link to="#" className="text-primary hover:text-secondary font-medium">
-                        Read more →
-                      </Link>
+                      <p className="text-gray-600 mb-4 line-clamp-2">{item.content}</p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-500">{item.date}</span>
+                        <span className="text-primary hover:text-secondary font-medium">
+                          Read more →
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
 
             {/* Notices Section */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Notices</h2>
+              <div className="flex justify-between items-center mb-8">
+                <h2 className="text-3xl font-bold text-gray-900">Notices</h2>
+                <Link to="/news/notices" className="text-primary hover:text-secondary">
+                  View All →
+                </Link>
+              </div>
               <div className="space-y-4">
-                {notices.map((notice, index) => (
-                  <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                {latestNotices.map((notice) => (
+                  <Link
+                    key={notice.id}
+                    to={`/news/${notice.category}/${notice.id}`}
+                    className="block bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
+                  >
                     <div className="text-sm text-gray-500 mb-2">{notice.date}</div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">{notice.title}</h3>
-                    <p className="text-gray-600">{notice.content}</p>
-                    <Link to="#" className="text-primary hover:text-secondary font-medium mt-2 inline-block">
+                    <p className="text-gray-600 line-clamp-2">{notice.content}</p>
+                    <span className="text-primary hover:text-secondary font-medium mt-2 inline-block">
                       View Details →
-                    </Link>
-                  </div>
+                    </span>
+                  </Link>
                 ))}
               </div>
             </div>

@@ -95,19 +95,19 @@ function Navbar() {
           <div className="hidden lg:flex items-center space-x-8 z-10">
             <Link 
               to="/" 
-              className="text-black font-bold hover:text-blue-600 transition-colors"
+              className="text-black font-bold hover:text-blue-700 transition-colors"
             >
               Home
             </Link>
             <Link 
               to="/about" 
-              className="text-black font-bold hover:text-blue-600 transition-colors"
+              className="text-black font-bold hover:text-blue-700 transition-colors"
             >
               About Us
             </Link>
             <Link 
               to="/prices" 
-              className="text-black font-bold hover:text-blue-600 transition-colors"
+              className="text-black font-bold hover:text-blue-700 transition-colors"
             >
               Price
             </Link>
@@ -116,7 +116,7 @@ function Navbar() {
             <div ref={productRef} className="relative group">
               <button
                 onClick={() => setIsProductOpen(!isProductOpen)}
-                className="text-black font-bold hover:text-blue-600 transition-colors flex items-center space-x-1"
+                className="text-black font-bold hover:text-blue-700 transition-colors flex items-center space-x-1"
               >
                 <span>Products</span>
                 <ChevronDown size={16} className={`transform transition-transform duration-200 ${isProductOpen ? 'rotate-180' : ''}`} />
@@ -150,7 +150,7 @@ function Navbar() {
             <div ref={newsRef} className="relative group">
               <button
                 onClick={() => setIsNewsOpen(!isNewsOpen)}
-                className="text-black font-bold hover:text-blue-600 transition-colors flex items-center space-x-1"
+                className="text-black font-bold hover:text-blue-700 transition-colors flex items-center space-x-1"
               >
                 <span>News & Notices</span>
                 <ChevronDown size={16} className={`transform transition-transform duration-200 ${isNewsOpen ? 'rotate-180' : ''}`} />
@@ -178,8 +178,8 @@ function Navbar() {
             </div>
 
             <Link 
-              to="#contact" 
-              className="px-6 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors"
+              to="/contactus" 
+              className="px-6 py-2 bg-blue-900 text-white font-bold rounded-lg hover:bg-blue-800 transition-colors"
             >
               Contact Us
             </Link>
@@ -286,8 +286,8 @@ function Navbar() {
                 </div>
 
                 <Link 
-                  to="#contact" 
-                  className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors text-center"
+                  to="/contactus" 
+                  className="px-6 py-3 bg-blue-900 text-white font-bold rounded-lg hover:bg-blue-800 transition-colors text-center"
                   onClick={() => setIsOpen(false)}
                 >
                   Contact Us
