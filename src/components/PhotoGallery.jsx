@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
+import noc from '../assets/noc.jpg';
+import lpgas from '../assets/lpgas.jpg';
+import aviation from '../assets/aviation.jpg';
+import nepalflag from '../assets/nepalflag.gif';
+import oil12 from '../assets/oil12.jpeg';
+import oil from '../assets/oil.jpeg';
+import noclogo from '../assets/noclogo.png';
 
 const images = [
-  '/src/assets/noc.jpg',
-  '/src/assets/lpgas.jpg',
-  '/src/assets/aviation.jpg',
-  '/src/assets/nepalflag.gif',
-  '/src/assets/oil12.jpeg',
-  '/src/assets/oil.jpeg',
-  '/src/assets/noclogo.png'
+    noc,
+    lpgas,
+    aviation,
+    nepalflag,
+    oil12,
+    oil,
+    noclogo
 ];
 
 const PhotoGallery = () => {

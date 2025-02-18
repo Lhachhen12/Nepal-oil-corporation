@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, MapPin, TrendingUp, Fuel, AlertCircle } from 'lucide-react';
 import { AreaChart, Area, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import noc from "../assets/noc.jpg"
+import aviation from "../assets/aviation.jpg"
+import oil from "../assets/oil.jpg"
 
 const priceData = [
   { month: 'Jan', petrol: 181, diesel: 168, lpg: 1575 },
@@ -323,7 +326,7 @@ const locationPrices = [
               <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-6">Our Facilities</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 h-[350px]">
                 <div className="relative group overflow-hidden rounded-lg">
-                  <img src="/src/assets/noc.jpg" alt="NOC Facility 1" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src={noc} alt="NOC Facility 1" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                     <div className="p-3 sm:p-4 text-white">
                       <h3 className="text-base sm:text-lg font-semibold">Thankot Depot</h3>
@@ -332,7 +335,7 @@ const locationPrices = [
                   </div>
                 </div>
                 <div className="relative group overflow-hidden rounded-lg">
-                  <img src="/src/assets/aviation.jpg" alt="NOC Facility 2" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src={aviation} alt="NOC Facility 2" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                     <div className="p-3 sm:p-4 text-white">
                       <h3 className="text-base sm:text-lg font-semibold">Birgunj Terminal</h3>
@@ -341,7 +344,7 @@ const locationPrices = [
                   </div>
                 </div>
                 <div className="relative group overflow-hidden rounded-lg sm:hidden lg:block">
-                  <img src="/src/assets/oil.jpeg" alt="NOC Facility 3" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <img src={oil} alt="NOC Facility 3" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                     <div className="p-3 sm:p-4 text-white">
                       <h3 className="text-base sm:text-lg font-semibold">Quality Control Lab</h3>

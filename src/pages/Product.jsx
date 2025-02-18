@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import oil112 from "../assets/oil12.jpeg";
+import oil from "../assets/oil.jpeg";
+import noc from "../assets/noc.jpg";
+import lpgas from "../assets/lpgas.jpg";
+import aviation from "../assets/aviation.jpg";
+
 
 const Product = () => {
   const products = [
-    { name: "Petrol", path: "/product/petrol", image: "/src/assets/oil12.jpeg" },
-    { name: "Diesel", path: "/product/diesel", image: "/src/assets/oil.jpeg" },
-    { name: "Kerosene", path: "/product/kerosene", image: "/src/assets/noc.jpg" },
-    { name: "LP Gas", path: "/product/lpg", image: "/src/assets/lpgas.jpg" },
-    { name: "Aviation Fuel", path: "/product/aviation", image: "/src/assets/aviation.jpg" },
+    { name: "Petrol", path: "/product/petrol", image: oil112 },
+    { name: "Diesel", path: "/product/diesel", image: oil, },
+    { name: "Kerosene", path: "/product/kerosene", image: noc, },
+    { name: "LP Gas", path: "/product/lpg", image: lpgas, },
+    { name: "Aviation Fuel", path: "/product/aviation", image: aviation, },
   ];
 
   return (

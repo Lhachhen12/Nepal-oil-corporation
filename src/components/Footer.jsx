@@ -1,5 +1,6 @@
-import { FaPhone, FaEnvelope, FaGlobe, FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaGlobe, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import noclogo from '../assets/noclogo.png';
 
 function Footer() {
   return (
@@ -23,7 +24,7 @@ function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Nepal Oil Corporation</h3>
             <img 
-              src="/src/assets/noclogo.png"
+              src={noclogo}
               alt="NOC Logo"
               className="h-16 w-auto mb-4"
             />

@@ -1,6 +1,12 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft } from 'lucide-react';
+import oil112 from '../assets/oil12.jpeg';
+import oil from '../assets/oil.jpeg';
+import noc from '../assets/noc.jpg';
+import lpgas from '../assets/lpgas.jpg';
+import aviation from '../assets/aviation.jpg';
+
 
 const productData = {
   petrol: {
@@ -11,7 +17,7 @@ const productData = {
       In Nepal, petrol is primarily imported from India through the Nepal Oil Corporation (NOC). NOC is responsible for the distribution and management of petroleum products across the country.
       The current price of petrol is Rs. 163 per liter, as of December 31, 2024.
     `,
-    image: "/src/assets/oil12.jpeg",
+    image: oil,
   },
   diesel: {
     name: "Diesel",
@@ -21,7 +27,7 @@ const productData = {
       Diesel is also used in some passenger vehicles, particularly in Europe and other regions where fuel efficiency is a priority.
       In Nepal, diesel is imported and distributed by the Nepal Oil Corporation (NOC). The current price of diesel is Rs. 153 per liter, as of December 31, 2024.
     `,
-    image: "/src/assets/oil.jpeg",
+    image: oil112,
   },
   kerosene: {
     name: "Kerosene",
@@ -31,7 +37,7 @@ const productData = {
       Kerosene is an important fuel for aviation, where it is used in jet engines and some turboprop aircraft.
       In Nepal, kerosene is distributed by the Nepal Oil Corporation (NOC). The current price of kerosene is Rs. 150.50 per liter, as of December 31, 2024.
     `,
-    image: "/src/assets/noc.jpg",
+    image: noc,
   },
   lpg: {
     name: "LP Gas",
@@ -41,7 +47,7 @@ const productData = {
       LPG is also used in some vehicles as an alternative to petrol or diesel, offering environmental benefits and cost savings.
       In Nepal, LPG is distributed by the Nepal Oil Corporation (NOC). The current price of an LPG gas cylinder is Rs. 1910, as of December 31, 2024.
     `,
-    image: "/src/assets/lpgas.jpg",
+    image: lpgas,
   },
   aviation: {
     name: "Aviation Fuel",
@@ -51,7 +57,7 @@ const productData = {
       Aviation fuel is crucial for the aviation industry, supporting commercial flights, military operations, and general aviation.
       In Nepal, aviation fuel is managed and distributed by the Nepal Oil Corporation (NOC). The current price of aviation fuel is Rs. 126 per liter, as of December 31, 2024.
     `,
-    image: "/src/assets/aviation.jpg",
+    image: aviation,
   },
 };
 

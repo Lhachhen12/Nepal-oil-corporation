@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import noclogo from '../assets/noclogo.png';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,7 +69,7 @@ function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center z-10">
             <img 
-              src="/src/assets/noclogo.png" 
+              src={noclogo}
               alt="Nepal Oil Corporation Logo" 
               className="h-16 w-auto transition-transform duration-500"
             />
