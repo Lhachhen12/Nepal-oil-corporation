@@ -4,6 +4,7 @@ import { AreaChart, Area, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
 import noc from "../assets/noc.jpg";
 import aviation from "../assets/aviation.jpg";
 import oil from "../assets/oil.jpeg";
+import { Link } from 'react-router-dom';
 
 const priceData = [
   { month: 'Jan', petrol: 181, diesel: 168, lpg: 1575 },
@@ -91,12 +92,17 @@ const locationPrices = [
                     </li>
                   </ul>
                   <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 animate-fade-in">
+                    <Link to="/prices">
                     <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 sm:px-8 py-2 sm:py-3 rounded-lg text-base md:text-lg font-semibold transition-colors">
                       Check Today's Prices
                     </button>
+                    </Link>
+
+                    <Link to="/about">
                     <button className="border-2 border-white text-white px-4 sm:px-8 py-2 sm:py-3 rounded-lg text-base md:text-lg font-semibold hover:bg-white hover:text-blue-700 transition-colors">
                       About NOC
                     </button>
+                    </Link>
                   </div>
                 </div>
                 <div className="hidden lg:block">

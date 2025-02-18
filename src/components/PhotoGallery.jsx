@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 import noc from '../assets/noc.jpg';
 import lpgas from '../assets/lpgas.jpg';
 import aviation from '../assets/aviation.jpg';
-// import nepalflag from '../assets/nepalflag.gif';
+import nepalflag from '../assets/nepalflag.gif';
 import oil12 from '../assets/oil12.jpeg';
 import oil from '../assets/oil.jpeg';
 import noclogo from '../assets/noclogo.png';
@@ -12,6 +12,7 @@ const images = [
     noc,
     lpgas,
     aviation,
+    nepalflag,
     oil12,
     oil,
     noclogo
