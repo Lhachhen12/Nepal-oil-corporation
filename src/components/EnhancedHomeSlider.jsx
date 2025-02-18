@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, MapPin, TrendingUp, Fuel, AlertCircle } from 'lucide-react';
 import { AreaChart, Area, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import noc from "../assets/noc.jpg"
-import aviation from "../assets/aviation.jpg"
-import oil from "../assets/oil.jpg"
+import noc from "../assets/noc.jpg";
+import aviation from "../assets/aviation.jpg";
+import oil from "../assets/oil.jpeg";
 
 const priceData = [
   { month: 'Jan', petrol: 181, diesel: 168, lpg: 1575 },
