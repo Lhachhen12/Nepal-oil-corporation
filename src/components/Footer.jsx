@@ -36,7 +36,7 @@ function Footer() {
             <ul className="space-y-2">
               <li><Link to="/" className="text-gray-400 hover:text-white">Home</Link></li>
               <li><Link to="/about" className="text-gray-400 hover:text-white">About Us</Link></li>
-              <li><a href="/photogalary" className="text-gray-400 hover:text-white">Photo Gallery</a></li>
+              <li><Link to="/photogalary" className="text-gray-400 hover:text-white">Photo Gallery</Link></li>
               <li><Link to="/contactus" className="text-gray-400 hover:text-white">Contact Us</Link></li>
               <li><a href="https://noc.org.np" className="text-gray-400 hover:text-white">Old Website</a></li>
             </ul>
