@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import noclogo from '../assets/noclogo.png';
 
 function Navbar() {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isProductOpen, setIsProductOpen] = useState(false);
   const [isNewsOpen, setIsNewsOpen] = useState(false);
@@ -32,17 +33,30 @@ function Navbar() {
       if (navRef.current && !navRef.current.contains(event.target)) {
         setIsOpen(false);
       }
-      if (productRef.current && !productRef.current.contains(event.target)) {
-        setIsProductOpen(false);
-      }
-      if (newsRef.current && !newsRef.current.contains(event.target)) {
-        setIsNewsOpen(false);
-      }
     }
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const handleProductClick = (e) => {
+    e.stopPropagation();
+    setIsProductOpen(!isProductOpen);
+    setIsNewsOpen(false); // Close other dropdown
+  };
+
+  const handleNewsClick = (e) => {
+    e.stopPropagation();
+    setIsNewsOpen(!isNewsOpen);
+    setIsProductOpen(false); // Close other dropdown
+  };
+
+  const handleDropdownItemClick = (path) => {
+    navigate(path);
+    setIsProductOpen(false);
+    setIsNewsOpen(false);
+    setIsOpen(false);
+  };
 
   return (
     <nav 
@@ -116,7 +130,7 @@ function Navbar() {
             {/* Products Dropdown */}
             <div ref={productRef} className="relative group">
               <button
-                onClick={() => setIsProductOpen(!isProductOpen)}
+                onClick={handleProductClick}
                 className="text-black font-bold hover:text-blue-700 transition-colors flex items-center space-x-1"
               >
                 <span>Products</span>
@@ -133,14 +147,13 @@ function Navbar() {
                       { title: 'LP Gas', path: '/product/lpg' },
                       { title: 'Aviation Fuel', path: '/product/aviation' },
                     ].map((item, index) => (
-                      <Link
+                      <button
                         key={index}
-                        to={item.path}
-                        className="px-4 py-2 text-black hover:bg-gray-50 transition-colors"
-                        onClick={() => setIsProductOpen(false)}
+                        onClick={() => handleDropdownItemClick(item.path)}
+                        className="px-4 py-2 text-left text-black hover:bg-gray-50 transition-colors w-full"
                       >
                         {item.title}
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -150,7 +163,7 @@ function Navbar() {
             {/* News & Notices Dropdown */}
             <div ref={newsRef} className="relative group">
               <button
-                onClick={() => setIsNewsOpen(!isNewsOpen)}
+                onClick={handleNewsClick}
                 className="text-black font-bold hover:text-blue-700 transition-colors flex items-center space-x-1"
               >
                 <span>News & Notices</span>
@@ -164,14 +177,13 @@ function Navbar() {
                       { title: 'Press Releases', path: '/news/press' },
                       { title: 'Notices', path: '/news/notices' },
                     ].map((item, index) => (
-                      <Link
+                      <button
                         key={index}
-                        to={item.path}
-                        className="px-4 py-2 text-black hover:bg-gray-50 transition-colors"
-                        onClick={() => setIsNewsOpen(false)}
+                        onClick={() => handleDropdownItemClick(item.path)}
+                        className="px-4 py-2 text-left text-black hover:bg-gray-50 transition-colors w-full"
                       >
                         {item.title}
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -192,10 +204,10 @@ function Navbar() {
             className={`
               fixed top-0 right-0 h-screen w-full bg-white/95 backdrop-blur-md transform transition-transform duration-300 ease-in-out z-40
               ${isOpen ? 'translate-x-0' : 'translate-x-full'}
-              lg:hidden
+              lg:hidden overflow-y-auto
             `}
           >
-            <div className="flex flex-col h-full pt-20 px-6">
+            <div className="flex flex-col h-full pt-20 px-6 pb-10">
               <div className="flex justify-between items-center">
                 <Link 
                   to="/" 
@@ -227,63 +239,63 @@ function Navbar() {
                   Price
                 </Link>
                 
+                {/* Mobile Products Dropdown */}
                 <div className="space-y-4">
                   <button
-                    onClick={() => setIsProductOpen(!isProductOpen)}
+                    onClick={handleProductClick}
                     className="text-black text-lg font-bold flex items-center justify-between w-full"
                   >
                     <span>Products</span>
                     <ChevronDown size={20} className={`transform transition-transform duration-200 ${isProductOpen ? 'rotate-180' : ''}`} />
                   </button>
-                  {isProductOpen && (
-                    <div className="pl-4 space-y-4">
-                      {[
-                        { title: 'All Products', path: '/product' },
-                        { title: 'Petrol', path: '/product/petrol' },
-                        { title: 'Diesel', path: '/product/diesel' },
-                        { title: 'Kerosene', path: '/product/kerosene' },
-                        { title: 'LP Gas', path: '/product/lpg' },
-                        { title: 'Aviation Fuel', path: '/product/aviation' },
-                      ].map((item, index) => (
-                        <Link
-                          key={index}
-                          to={item.path}
-                          className="block text-black/80 hover:text-black transition-colors"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {item.title}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+                  
+                  {/* Mobile Products Dropdown Content */}
+                  <div className={`pl-4 space-y-4 ${isProductOpen ? 'block' : 'hidden'}`}>
+                    {[
+                      { title: 'All Products', path: '/product' },
+                      { title: 'Petrol', path: '/product/petrol' },
+                      { title: 'Diesel', path: '/product/diesel' },
+                      { title: 'Kerosene', path: '/product/kerosene' },
+                      { title: 'LP Gas', path: '/product/lpg' },
+                      { title: 'Aviation Fuel', path: '/product/aviation' },
+                    ].map((item, index) => (
+                      <button
+                        key={index}
+                        onClick={() => handleDropdownItemClick(item.path)}
+                        className="block text-black/80 hover:text-black transition-colors text-left w-full"
+                      >
+                        {item.title}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
+                {/* Mobile News Dropdown */}
                 <div className="space-y-4">
                   <button
-                    onClick={() => setIsNewsOpen(!isNewsOpen)}
+                    onClick={handleNewsClick}
                     className="text-black text-lg font-bold flex items-center justify-between w-full"
                   >
                     <span>News & Notices</span>
                     <ChevronDown size={20} className={`transform transition-transform duration-200 ${isNewsOpen ? 'rotate-180' : ''}`} />
                   </button>
-                  {isNewsOpen && (
-                    <div className="pl-4 space-y-4">
-                      {[
-                        { title: 'Latest News', path: '/news/latest' },
-                        { title: 'Press Releases', path: '/news/press' },
-                        { title: 'Notices', path: '/news/notices' },
-                      ].map((item, index) => (
-                        <Link
-                          key={index}
-                          to={item.path}
-                          className="block text-black/80 hover:text-black transition-colors"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {item.title}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+                  
+                  {/* Mobile News Dropdown Content */}
+                  <div className={`pl-4 space-y-4 ${isNewsOpen ? 'block' : 'hidden'}`}>
+                    {[
+                      { title: 'Latest News', path: '/news/latest' },
+                      { title: 'Press Releases', path: '/news/press' },
+                      { title: 'Notices', path: '/news/notices' },
+                    ].map((item, index) => (
+                      <button
+                        key={index}
+                        onClick={() => handleDropdownItemClick(item.path)}
+                        className="block text-black/80 hover:text-black transition-colors text-left w-full"
+                      >
+                        {item.title}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 <Link 
